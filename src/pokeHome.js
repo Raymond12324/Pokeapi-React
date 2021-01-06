@@ -29,7 +29,7 @@ function PokeHome() {
         <br />
 
         <Typography component="h1" color="textPrimary" align="center">
-          <h1 color="textPrimary">PokeWeb</h1>
+          <h1 color="textPrimary"></h1>
         </Typography>
         <PersonajesList></PersonajesList>
       </Container>

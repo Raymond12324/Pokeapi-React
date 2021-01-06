@@ -55,30 +55,24 @@ function PersonajesList() {
       alignItems: "center",
       color: "black",
 
-      backgroundImage: `url(${back})`,
-      backgroundSize: 550,
-      backdropFilter: "blur(10px)",
-      backgroundColor: "#FFfff",
-      boxShadow: "0 3px 5px 2px ",
+      // backgroundImage: `url(${back})`,
+      //backgroundSize: 550,
+      // backdropFilter: "blur(10px)",
+      //backgroundColor: "#FFfff",
+      //boxShadow: "0 3px 5px 2px ",
     },
   }));
 
   const classes = useStyles();
 
   return (
-    <Grid container spacing={12}>
+    <div>
       {loading ? <div class="lds-hourglass"></div> : ""}
 
       {personajes.map((item) => {
-        return (
-          <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
-            <Paper className={classes.paper}>
-              <Personaje className="grid-item" key={item.id} {...item} />
-            </Paper>
-          </Grid>
-        );
+        return <Personaje className="grid-item" key={item.id} {...item} />;
       })}
-    </Grid>
+    </div>
   );
 }
 

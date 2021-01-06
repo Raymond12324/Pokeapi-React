@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   },
   media: {
     height: 400,
-    width: 310,
+    width: 340,
     margin: "auto",
   },
   media2: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
     //backgroundImage: `url(${back})`,
     // backgroundSize: 550,
     //backdropFilter: "blur(3px)",
-    backgroundColor: "#cccccc",
+    backgroundColor: "#FFFFFF",
   },
 
   sombra: {
@@ -49,6 +49,23 @@ const useStyles = makeStyles({
 });
 
 function PokeDescription({ match }) {
+  const colors = {
+    fire: "#FDDFDF",
+    grass: "#DEFDE0",
+    electric: "#FCF7DE",
+    water: "#DEF3FD",
+    ground: "#f4e7da",
+    rock: "#d5d5d4",
+    fairy: "#fceaff",
+    poison: "#870B6E",
+    bug: "#f8d5a3",
+    dragon: "#97b3e6",
+    psychic: "#eaeda1",
+    flying: "#F5F5F5",
+    fighting: "#E6E0D4",
+    normal: "#F5F5F5",
+  };
+
   const url = `https://pokeapi.co/api/v2/pokemon/${match.params.id}`;
   var pokesArr = [];
   const [personaje, setPersonaje] = useState([]);
@@ -60,7 +77,7 @@ function PokeDescription({ match }) {
   const fetchPersonaje = async () => {
     const fetchItem = await fetch(url);
     const item = await fetchItem.json();
-    console.log(item);
+
     pokesArr.push(item);
     setPersonaje(pokesArr);
   };
@@ -80,7 +97,10 @@ function PokeDescription({ match }) {
           lg={12}
           xl={12}
         >
-          <CardActionArea className={classes.fondo}>
+          <CardActionArea
+            className={classes.fondo}
+            style={{ backgroundColor: colors[item.types[0].type.name] }}
+          >
             <CardContent>
               <Typography
                 gutterBottom
@@ -152,7 +172,7 @@ function PokeDescription({ match }) {
                         item.stats[5].base_stat,
                       ],
                       backgroundColor: [
-                        "rgba(255, 51, 51, 0.5)",
+                        "rgba(38, 5, 119,0.3)",
                         "rgba(88, 19, 236, 0.2)",
                         "rgba(255, 206, 86, 0.2)",
                         "rgba(75, 192, 192, 0.2)",
